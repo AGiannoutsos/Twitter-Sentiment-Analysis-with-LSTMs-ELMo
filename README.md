@@ -44,7 +44,7 @@ Finally, for the best configuration that we will apply a random grid search, we 
 These are the best model configuration because the results show that these configurations have room for improvement.
 
 ####  Randomized grid search
-![lstm self-attention](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/images/parallel_graph.png)
+![Randomized grid search](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/images/parallel_graph.png)
 We can't find a strong correlation between the parameters that play the most crucial role.
 One trend that we can detect is that with hidden layers of less than 16 f1 models perform worse. The best-hidden size should be between 32 and 64.
 Another trend is that having a smaller learning rate of 0.0001, models score less in contrast with a greater learning rate of 0.001. The in-between values of the learning rate achieve the best results.
@@ -59,7 +59,7 @@ Although it was prone to more overfitting because the model could learn faster b
 As for the accuracy, it did not add that much up. Maybe the pre-trained embeddings from a language model may be better at increasing the accuracy of the model.
 
 ### ELMo
-
+![elmo](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/images/elmo_graph.png)
 A 512 hidden layer size model gave us the best results from all the previous experiments. The model even reached a validation accuracy of 0.85 but from that point and on the model was overfitting and it reduced its validation accuracy.
 For that reason, we may try to early stop it at 5 epochs only.
 A further examination of dropout ar l2 regularization is practically forbidden caus the model took 7 hours to train which is just enough for a Google Colab GPU Runtime.
