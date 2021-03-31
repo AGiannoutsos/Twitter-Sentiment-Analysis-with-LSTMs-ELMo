@@ -59,7 +59,7 @@ Although it was prone to more overfitting because the model could learn faster b
 As for the accuracy, it did not add that much up. Maybe the pre-trained embeddings from a language model may be better at increasing the accuracy of the model.
 
 ### ELMo
-512 hidden layer size gave us the best results from all the previous experiments. The model even reached a validation accuracy of 0.85 but from that point and on the model was overfitting and it reduced its validation accuracy.
+A 512 hidden layer size model gave us the best results from all the previous experiments. The model even reached a validation accuracy of 0.85 but from that point and on the model was overfitting and it reduced its validation accuracy.
 For that reason, we may try to early stop it at 5 epochs only.
 A further examination of dropout ar l2 regularization is practically forbidden caus the model took 7 hours to train which is just enough for a Google Colab GPU Runtime.
 
@@ -67,5 +67,19 @@ From the testing we can clearly notice that the Embeddings from a Language Model
 A bigger model with 512 hidden layers and more could benefit from the elmo embeddings. 
 Also the elmo was using only one layer beacause of memory limitations. Using one more might have even grater results.
 
+
+## About final results and comparison with a Feed Forward NN
+The best simple Feed Forward Neural Network could achieve a test set accuracy of 0.78. This score was produced using the embedding layer and by choosing the ideal network size to reduce overfitting.
+
+The RNNs LSTM and GRU alone could not overcome this score, proving that a simple neural network is a hard benchmark to beat. The best these models could achieve has around the best feed-forward network.
+
+As for the hyperparameters, we could notice a similar trend with the feed-forward NNs as bigger layers and more parameters were causing overfitting, and dropout or weight decay was needed. Even the dropout rate of high could intervene with the model's convergence. The best combination was a small hidden layer size.
+
+Adding self-attention to the model didn't offer any improvement. This might be due to the limited resources for the better tuning of its hyperparameters, or the dataset might be too hard to extract contextual information from it. Even more, the self-attention model was more prone to overfitting, which might unveil a weird pattern of the dataset.
+
+Elmo embeddings brought a significant improvement to the performance. The bidirectional LSTM that each direction was trained separately could provide information from this incomprehensible dataset. We used only one Elmo layer from its stacked LSTM layers due to memory and time limitations. The best model took about 7 hours to train. Even with one Elmo layer, we could achieve consistently greater validation scores of 0.8.
+
+However, from 20 minutes we went to 7 hours to only gain 0.03 percent improvement. By having more resources we could tune the Elmo model better and get better scores.
+Transfer learning with RNNs was the most effective way to get the best results.
 
 
