@@ -34,7 +34,7 @@ We train the LSTM model using the full 5.5B pre-trained model and also with the 
 ## About the results
 
 ### RNNs, LSTMs, GRUs
-
+![lstm simple](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/images/lstm_graphs.png)
 From the different parameters and configurations of RNN models, we cannot surpass the 0.78 validation accuracy.
 GRU and LSTMS even though LSTM blocks have more gates and are more complex in this dataset don't have many differences. We can even say that relatively to GRU's computational complexity it is superior.
 About the number of hidden layers, small sizes of 16, 32, and 64 have great generalization capabilities. Larger sizes only tend to overfit without increasing the score significantly.
@@ -44,14 +44,14 @@ Finally, for the best configuration that we will apply a random grid search, we 
 These are the best model configuration because the results show that these configurations have room for improvement.
 
 ####  Randomized grid search
-
+![lstm self-attention](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/images/parallel_graph.png)
 We can't find a strong correlation between the parameters that play the most crucial role.
 One trend that we can detect is that with hidden layers of less than 16 f1 models perform worse. The best-hidden size should be between 32 and 64.
 Another trend is that having a smaller learning rate of 0.0001, models score less in contrast with a greater learning rate of 0.001. The in-between values of the learning rate achieve the best results.
 
 
 ### Self-attention
-
+![lstm self-attention](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/images/lstm_selfattention_graph.png)
 From the tested models and parameters, we couldn't find a model that performed better than the non-attention model having a simple sigmoid function at the last RNN block.
 
 However, the self-attention model could learn faster and, it converged at faster rates than the simple sentiment classification model.
@@ -59,6 +59,7 @@ Although it was prone to more overfitting because the model could learn faster b
 As for the accuracy, it did not add that much up. Maybe the pre-trained embeddings from a language model may be better at increasing the accuracy of the model.
 
 ### ELMo
+
 A 512 hidden layer size model gave us the best results from all the previous experiments. The model even reached a validation accuracy of 0.85 but from that point and on the model was overfitting and it reduced its validation accuracy.
 For that reason, we may try to early stop it at 5 epochs only.
 A further examination of dropout ar l2 regularization is practically forbidden caus the model took 7 hours to train which is just enough for a Google Colab GPU Runtime.
