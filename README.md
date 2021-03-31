@@ -1,8 +1,9 @@
 # Twitter-Sentiment-Analysis-with-LSTMs-ELMo
 Twitter Sentiment analysis using RNS like LSTMs, GRUs and enhancing the performance with ELMo embeddings and a self-attention model
 
-# Code and report
-The code and the report can be found at the notebook which is insisted to be opened on Google colab from here -> [![Click here to open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/twitter_sentiment_analysis.ipynb)
+## Code and report
+The code and the report can be found at the notebook which is insisted to be opened on Google colab from here -> [![Click here to open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/twitter_sentiment_analysis.ipynb)
+
 Also, you are highly insisted to use the Google colab's Table of Contents section since there are many paragraphs and sections in the notebook.
 
 ## About the project
@@ -23,6 +24,7 @@ For the grid-search we will be using Weights and Biases which is a tool for logg
 ### Self-attention
 For the self-attention model, we implement the method proposed by [(Lin et al., 2017)](https://arxiv.org/pdf/1703.03130.pdf).
 The parameters of w1 and w2 weights from the Dense layers are 10 and 5 according to the paper.
+
 The use of the self-attention model gives us a context about the location to which the model should pay more attention in the sentence. With this method, the model can activate its neurons more to the areas of the sentence that statistically have shown more contextual importance.
 Then try different configurations on the self-attention model
 
@@ -37,6 +39,7 @@ We train the LSTM model using the full 5.5B pre-trained model and also with the 
 ![lstm simple](https://github.com/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/images/lstm_graphs.png)
 From the different parameters and configurations of RNN models, we cannot surpass the 0.78 validation accuracy.
 GRU and LSTMS even though LSTM blocks have more gates and are more complex in this dataset don't have many differences. We can even say that relatively to GRU's computational complexity it is superior.
+
 About the number of hidden layers, small sizes of 16, 32, and 64 have great generalization capabilities. Larger sizes only tend to overfit without increasing the score significantly.
 Bidirectionality also doesn't have a great impact but we can see a slight improvement.
 Dropout and gradient clipping won't also change drastically the results. Also, dropout needs to be very small otherwise the model won't converge.
@@ -69,7 +72,7 @@ A bigger model with 512 hidden layers and more could benefit from the elmo embed
 Also the elmo was using only one layer beacause of memory limitations. Using one more might have even grater results.
 
 
-## About final results and comparison with a Feed Forward NN
+## Final results and comparison with a Feed Forward NN
 The best simple Feed Forward Neural Network could achieve a test set accuracy of 0.78. This score was produced using the embedding layer and by choosing the ideal network size to reduce overfitting.
 
 The RNNs LSTM and GRU alone could not overcome this score, proving that a simple neural network is a hard benchmark to beat. The best these models could achieve has around the best feed-forward network.
