@@ -59,6 +59,9 @@ Although it was prone to more overfitting because the model could learn faster b
 As for the accuracy, it did not add that much up. Maybe the pre-trained embeddings from a language model may be better at increasing the accuracy of the model.
 
 ### ELMo
+512 hidden layer size gave us the best results from all the previous experiments. The model even reached a validation accuracy of 0.85 but from that point and on the model was overfitting and it reduced its validation accuracy.
+For that reason, we may try to early stop it at 5 epochs only.
+A further examination of dropout ar l2 regularization is practically forbidden caus the model took 7 hours to train which is just enough for a Google Colab GPU Runtime.
 
 From the testing we can clearly notice that the Embeddings from a Language Model can impove the scores by an remarkable rate. 
 A bigger model with 512 hidden layers and more could benefit from the elmo embeddings. 
