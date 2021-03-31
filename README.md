@@ -2,7 +2,7 @@
 Twitter Sentiment analysis using RNS like LSTMs, GRUs and enhancing the performance with ELMo embeddings and a self-attention model
 
 ## Code and report
-The code and the report can be found at the notebook which is insisted to be opened on Google colab from here -> [![Click here to open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/twitter_sentiment_analysis.ipynb)
+The code and the report can be found at the notebook which is insisted to be opened on Google colab from here [![Click here to open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AGiannoutsos/Twitter-Sentiment-Analysis-with-LSTMs-ELMo/blob/main/twitter_sentiment_analysis.ipynb)
 
 Also, you are highly insisted to use the Google colab's Table of Contents section since there are many paragraphs and sections in the notebook.
 
